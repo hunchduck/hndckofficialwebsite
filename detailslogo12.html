@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logo Preview - HunchDuck Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .logo-header {
+      margin-top: 50px;
+    }
+
+    .logo-header img {
+      width: 90px;
+      height: auto;
+      filter: brightness(1.4);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      margin: 15px 0 5px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 1em;
+      color: #ccc;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .tagline {
+      font-size: 0.9em;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    .preview-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+      width: 90%;
+      max-width: 700px;
+    }
+
+    .preview-item {
+      background-color: #111;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .preview-item h3 {
+      margin-bottom: 10px;
+      font-size: 1em;
+      color: #fff;
+    }
+
+    .preview-item img {
+      width: 100%;
+      max-height: 600px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .preview-item img.zoomed {
+      transform: scale(2);
+      cursor: zoom-out;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      margin-bottom: 50px;
+      padding: 10px 20px;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    footer {
+      font-size: 0.8em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .preview-item img.zoomed {
+        transform: scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-header">
+    <img src="hnchdcklogo.png" alt="HunchDuck Studio Logo" />
+  </div>
+
+  <h1>HunchDuck Studio</h1>
+  <h2>Premium Graphic Design</h2>
+  <div class="tagline">#CreativeIdentity &nbsp; #DesignMatters &nbsp; #HunchDuckStyle</div>
+
+  <div class="preview-container">
+    <div class="preview-item">
+      <h3>Logo Preview</h3>
+      <img src="logo12.jpg" alt="Logo Design Preview" onclick="toggleZoom(this)">
+    </div>
+  </div>
+
+  <a href="logo.html" class="back-button">← Back</a>
+
+  <footer>&copy; 2022 hndckstudio. All Rights Reserved.| created by: @alifyaanazz_</footer>
+
+  <script>
+    function toggleZoom(image) {
+      image.classList.toggle('zoomed');
+    }
+  </script>
+</body>
+</html>

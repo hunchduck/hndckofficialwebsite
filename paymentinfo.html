@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Options - HunchDuck Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 40px 0 20px;
+    }
+
+    .logo img {
+      width: 80px;
+      filter: brightness(1.3);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 10px 0 5px;
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1em;
+      color: #ccc;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .tagline {
+      font-size: 0.9em;
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    .info-note {
+      font-size: 0.95em;
+      color: #eee;
+      margin-bottom: 30px;
+      font-style: italic;
+      background-color: #111;
+      padding: 10px 20px;
+      border-left: 3px solid white;
+    }
+
+    .options-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 1000px;
+    }
+
+    .option-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 30px 20px;
+      width: 250px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .option-card:hover {
+      transform: translateY(-5px);
+      background-color: #222;
+    }
+
+    .option-card img {
+      width: 60px;
+      margin-bottom: 15px;
+      filter: brightness(1.2);
+    }
+
+    .option-card h3 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #fff;
+    }
+
+    .back-button {
+      margin: 30px 0;
+      padding: 10px 20px;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    footer {
+      font-size: 0.8em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .option-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="hnchdcklogo.png" alt="HunchDuck Studio Logo" />
+    </div>
+    <h1>HunchDuck Studio</h1>
+    <h2>Premium Graphic Design</h2>
+    <div class="tagline">#CreativeIdentity &nbsp; #DesignMatters &nbsp; #HunchDuckStyle</div>
+  </header>
+
+  <div class="info-note">
+    Contact us to get the account number.
+  </div>
+
+  <section class="options-container">
+    <div class="option-card">
+      <img src="pp.jpg" alt="PayPal">
+      <h3>Pay with PayPal</h3>
+    </div>
+    <div class="option-card">
+      <img src="mndr.jpg" alt="Bank Mandiri">
+      <h3>Bank Transfer (Mandiri)</h3>
+    </div>
+    <div class="option-card">
+      <img src="dn.jpg" alt="DANA">
+      <h3>Pay via DANA</h3>
+    </div>
+  </section>
+
+  <a href="index.html" class="back-button">← Back to Home</a>
+
+  <footer>&copy; 2022 hndckstudio. All Rights Reserved.| created by: @alifyaanazz_</footer>
+
+</body>
+</html>

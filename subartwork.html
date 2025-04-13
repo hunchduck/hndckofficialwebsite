@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - HunchDuck Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      background-image: linear-gradient(135deg, #000, #111);
+    }
+
+    .logo {
+      margin-top: 50px;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+      filter: grayscale(100%) brightness(1.4);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8em;
+      margin: 15px 0 5px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 1.1em;
+      color: #ccc;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 0 20px;
+      margin-bottom: 50px;
+    }
+
+    .menu-item {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid white;
+      border-radius: 12px;
+      padding: 30px 40px;
+      min-width: 180px;
+      text-decoration: none;
+      color: white;
+      font-size: 1.1em;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(5px);
+    }
+
+    .menu-item:hover {
+      background-color: white;
+      color: black;
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 15px 25px rgba(255, 255, 255, 0.1);
+    }
+
+    .back-button {
+      margin-bottom: 40px;
+      padding: 12px 25px;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+      font-size: 0.95em;
+    }
+
+    .back-button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    footer {
+      font-size: 0.8em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .menu-item {
+        width: 80%;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="hnchdcklogo.png" alt="HunchDuck Studio Logo" />
+  </div>
+
+  <h1>HunchDuck Studio</h1>
+  <h2>Premium Graphic Design Solutions</h2>
+
+  <div class="menu-container">
+    <a href="graphicdesign.html" class="menu-item">Graphic Design</a>
+    <a href="illustration.html" class="menu-item">Illustration</a>
+    <a href="poster.html" class="menu-item">Poster</a>
+  </div>
+
+  <a href="catalogmenu.html" class="back-button">← Back</a>
+
+  <footer>&copy; 2022 hndckstudio. All Rights Reserved.| created by: @alifyaanazz_</footer>
+</body>
+</html>

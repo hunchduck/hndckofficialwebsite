@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Asset Catalog - Hunchduck Studio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0e0e0e;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+
+    header img {
+      max-width: 90px;
+    }
+
+    header h1 {
+      font-size: 26px;
+      margin-top: 10px;
+    }
+
+    header p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .slider-wrapper {
+      padding: 30px 20px;
+    }
+
+    .slider-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider {
+      display: flex;
+      gap: 20px;
+    }
+
+    .card {
+      min-width: 220px;
+      background-color: #2c2c2c;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(255,255,255,0.03);
+      transition: transform 0.3s;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      padding: 8px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .price {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 6px;
+    }
+
+    .details {
+      font-size: 13px;
+      color: #fff;
+      text-decoration: underline;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .details:hover {
+      color: #ccc;
+    }
+
+    .buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .buttons button {
+      padding: 8px 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+      font-size: 14px;
+    }
+
+    .buttons button:hover {
+      background-color: #555;
+    }
+
+    .custom-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .custom-section a {
+      font-size: 14px;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .custom-section a:hover {
+      background-color: #ddd;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 14px;
+      color: #fff;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      z-index: 1000;
+    }
+
+    .back-button:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        min-width: 180px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back Button -->
+  <a href="catalogmenu.html" class="back-button">← Back</a>
+
+  <!-- Header -->
+  <header>
+    <img src="hnchdcklogo.png" alt="Hunchduck Logo">
+    <h1>Hunchduck Studio|Asset</h1>
+    <p>Premium Graphic Design Solutions</p>
+  </header>
+
+  <!-- Slider Section -->
+  <div class="slider-wrapper">
+    <div class="slider-container" id="slider">
+      <div class="slider">
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="asset1.jpg" alt="Logo 1" />
+          <h3>FLIGHT JACKET</h3>
+          <p class="price">$10</p>
+          <a class="details" href="detailsasset1.html">Details</a>
+        </div>
+        
+        <!-- Add more cards if needed -->
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button onclick="scrollSlider(-1)">←</button>
+      <button onclick="scrollSlider(1)">→</button>
+    </div>
+  </div>
+
+  <!-- Custom Request -->
+  <div class="custom-section">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiDn1dDn0p7ic4HFe3IBh97SDVTk12YtsX0C8eWv6CAi57dw/viewform?usp=sharing" target="_blank">
+      Request Custom Logo via Google Form
+    </a>
+  </div>
+
+  <script>
+    function scrollSlider(direction) {
+      const container = document.getElementById('slider');
+      const scrollAmount = 300;
+      container.scrollLeft += direction * scrollAmount;
+    }
+  </script>
+
+</body>
+</html>

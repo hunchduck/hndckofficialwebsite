@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HunchDuck Studio - Graphic Design Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 60px;
+      border-bottom: 1px solid #333;
+      background-color: #000;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-section img {
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    .logo-text h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .logo-text p {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #bbb;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px 100px;
+      background: linear-gradient(180deg, #000, #111);
+    }
+
+    .hero h2 {
+      font-size: 38px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #aaa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #333;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .catalog-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 50px auto;
+      overflow: hidden;
+    }
+    .catalog-slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .catalog-item {
+      margin-right: 20px;
+      flex: 0 0 auto;
+      width: 250px;
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding: 10px;
+    }
+    .catalog-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .catalog-item h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    .catalog-item p {
+      font-size: 16px;
+      color: #ddd;
+      margin-top: 5px;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      margin-top: 10px;
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .prev-btn, .next-btn {
+      padding: 10px 20px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .prev-btn:hover, .next-btn:hover {
+      background-color: #555;
+    }
+    .detail-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #bbb;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.detail-link:hover {
+  color: #fff;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-section">
+      <img src="hnchdcklogo.png" alt="DesignLux Logo" />
+      <div class="logo-text">
+        <h1>HunchDuck Studio</h1>
+        <p>Premium Graphic Design Solutions</p>
+        
+      </div>
+    </div>
+    <nav>
+      <a href="catalogmenu.html">Catalog</a>
+      <a href="contactperson.html">Contact Person</a>
+      <a href="paymentinfo.html">Payment Information</a>
+    </nav>
+    
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to HunchDuck Studio</h2>
+    <div class="catalog-container">
+        <div class="catalog-slider" id="slider">
+            <div class="catalog-item">
+                <img src="mu1.jpeg" alt="Design 1">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu1.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu2.jpeg" alt="Design 2">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu2.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu3.jpeg" alt="Design 3">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu3.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu4.jpeg" alt="Design 4">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu4.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu5.jpeg" alt="Design 1">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu5.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu6.jpeg" alt="Design 2">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu6.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu7.jpeg" alt="Design 3">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu7.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu8.jpeg" alt="Design 4">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu8.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu9.jpeg" alt="Design 1">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu9.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu10.jpeg" alt="Design 2">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                <a href="detailsmu10.html" class="detail-link">Details</a>
+              </div>
+              <div class="catalog-item">
+                <img src="mu11.jpeg" alt="Design 3">
+                <h3>MOCKUP PREVIEW!</h3>
+                <p> </p>
+                <div class="price"> </div>
+                 <a href="detailsmu11.html" class="detail-link">Details</a>
+              </div>
+  </section>
+   <div class="buttons">
+    <button class="prev-btn" onclick="moveSlider('prev')">Back</button>
+    <button class="next-btn" onclick="moveSlider('next')">Next</button>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    let currentPosition = 0;
+    const slideWidth = 290; // Width of each item + margin
+
+    function moveSlider(direction) {
+      if (direction === 'next') {
+        if (currentPosition > -(slider.scrollWidth - slider.clientWidth)) {
+          currentPosition -= slideWidth;
+        }
+      } else if (direction === 'prev') {
+        if (currentPosition < 0) {
+          currentPosition += slideWidth;
+        }
+      }
+      slider.style.transform = `translateX(${currentPosition}px)`;
+    }
+  </script>
+
+  <footer>
+    &copy; 2022 hndckstudio. All Rights Reserved.| created by: @alifyaanazz_
+  </footer>
+
+</body>
+</html>

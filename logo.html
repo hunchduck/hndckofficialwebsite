@@ -205,7 +205,6 @@
         <p class="price">COMMISSION WORK!</p>
         <a class="details" href="detailslogo3.html">Details</a>
       </div>
-      
     </div>
   </div>
 
@@ -226,7 +225,7 @@
     const cardWidth = 240; // 220 card + 20 gap/margin
     const visibleCards = 4;
 
-    const maxIndex = Math.ceil(slider.children.length - visibleCards);
+    const maxIndex = Math.ceil((slider.children.length - visibleCards) / 1); // Adjust maxIndex to show the last image
     scrollIndex = Math.min(Math.max(scrollIndex + direction, 0), maxIndex);
     slider.style.transform = `translateX(-${scrollIndex * cardWidth}px)`;
   }

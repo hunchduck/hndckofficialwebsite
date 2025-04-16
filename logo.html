@@ -5,21 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Logo Catalog - Hunchduck Studio</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #0e0e0e;
       color: #fff;
-      font-family: 'Segoe UI', sans-serif;
     }
 
     header {
       text-align: center;
-      padding: 40px 20px 10px;
+      padding: 30px 20px 10px;
     }
 
     header img {
@@ -37,48 +32,63 @@
     }
 
     .slider-wrapper {
-      padding: 30px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px 0;
+      position: relative;
+    }
+
+    .arrow-btn {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+
+    .arrow-btn:hover {
+      background-color: #555;
     }
 
     .slider-container {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-    }
-
-    .slider-container::-webkit-scrollbar {
-      display: none;
+      overflow: hidden;
+      width: 880px; /* 220px x 4 cards */
     }
 
     .slider {
       display: flex;
-      gap: 20px;
+      transition: transform 0.5s ease-in-out;
     }
 
     .card {
-      min-width: 220px;
+      width: 220px;
       background-color: #2c2c2c;
       border-radius: 12px;
       padding: 15px;
+      margin: 0 10px;
       text-align: center;
       flex-shrink: 0;
       box-shadow: 0 0 12px rgba(255,255,255,0.03);
-      transition: transform 0.3s;
-      overflow: hidden;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
     }
 
     .card img {
       width: 100%;
       height: 140px;
-      object-fit: contain;
-      background-color: #1a1a1a;
+      object-fit: cover;
       border-radius: 8px;
+      background-color: #1a1a1a;
       margin-bottom: 12px;
-      padding: 8px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.03);
     }
 
     .card h3 {
@@ -104,45 +114,29 @@
       color: #ccc;
     }
 
-    .buttons {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .buttons button {
-      padding: 8px 16px;
-      background-color: #333;
-      color: #fff;
-      border: none;
-      margin: 0 10px;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.3s;
-      font-size: 14px;
-    }
-
-    .buttons button:hover {
-      background-color: #555;
-    }
-
     .custom-section {
       text-align: center;
-      margin-top: 40px;
+      margin: 40px 20px;
+      padding: 20px;
+      background-color: #1a1a1a;
+      border-radius: 8px;
     }
 
     .custom-section a {
-      font-size: 14px;
-      padding: 10px 20px;
-      background-color: #fff;
-      color: #000;
+      font-size: 16px;
+      padding: 12px 20px;
+      background-color: #3b3b3b;
+      color: #fff;
       text-decoration: none;
-      border-radius: 25px;
+      border-radius: 30px;
       transition: 0.3s;
       font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
 
     .custom-section a:hover {
-      background-color: #ddd;
+      background-color: #555;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
     .back-button {
@@ -162,141 +156,81 @@
       color: #ccc;
     }
 
-    @media (max-width: 768px) {
-      .card {
-        min-width: 180px;
+    @media (max-width: 920px) {
+      .slider-container {
+        width: 100%;
+        max-width: 90vw;
       }
 
-      header h1 {
-        font-size: 22px;
+      .card {
+        width: 45vw;
+        margin: 0 5px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Back Button -->
-  <a href="catalogmenu.html" class="back-button">← Back</a>
+<a href="catalogmenu.html" class="back-button">← Back</a>
 
-  <!-- Header -->
-  <header>
-    <img src="hnchdcklogo.png" alt="Hunchduck Logo">
-    <h1>Hunchduck Studio|Logo</h1>
-    <p>Premium Graphic Design Solutions</p>
-  </header>
+<header>
+  <img src="hnchdcklogo.png" alt="Hunchduck Logo">
+  <h1>Hunchduck Studio | Logo</h1>
+  <p>Premium Graphic Design Solutions</p>
+</header>
 
-  <!-- Slider Section -->
-  <div class="slider-wrapper">
-    <div class="slider-container" id="slider">
-      <div class="slider">
-        <!-- Card 1 -->
-        <div class="card">
-          <img src="logo1.jpg" alt="Logo 1" />
-          <h3>EVOTSON</h3>
-          <p class="price">COMMISSION WORK!</p>
-          <a class="details" href="detailslogo1.html">Details</a>
-        </div>
-        <!-- Card 2 -->
-        <div class="card">
-          <img src="logo2.jpg" alt="Logo 2" />
-          <h3>CRYPT BAND </h3>
-          <p class="price">COMMISSION WORK!</p>
-          <a class="details" href="detailslogo2.html">Details</a>
-        </div>
-        <!-- Card 3 -->
-        <div class="card">
-            <img src="Logoo 2.jpg" alt="Logo 3" />
-            <h3>PUNISH</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo3.html">Details</a>
-          </div>
-          <!-- Card 2 -->
-          <div class="card">
-            <img src="logo 3.jpg" alt="Logo 4" />
-            <h3>NIGHT</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo4.html">Details</a>
-          </div>
-          <!-- Card 2 -->
-          <div class="card">
-            <img src="logo 4.jpg" alt="Logo 5" />
-            <h3>HOSHIKUMA</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo5.html">Details</a>
-          </div>
-          <!-- Card 2 -->
-          <div class="card">
-            <img src="logo 5.jpg" alt="Logo 6" />
-            <h3>BLOOD</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo6.html">Details</a>
-          </div>
-          <!-- Card 2 -->
-          <div class="card">
-            <img src="logo 6.jpg" alt="Logo 7" />
-            <h3>CRYPT</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo7.html">Details</a>
-          </div>
-          <!-- Card 2 -->
-          <div class="card">
-            <img src="logo 7.jpg" alt="Logo 8" />
-            <h3>HOMEBOY CLOTH</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo8.html">Details</a>
-          </div>
-          <!-- Card 2 -->
-          <div class="card">
-            <img src="logo 8.jpg" alt="Logo 9" />
-            <h3>HIGH OFF HELL</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo9.html">Details</a>
-          </div>
-          <!-- Card 2 -->
-          <div class="card">
-            <img src="logo 9.jpg" alt="Logo 10" />
-            <h3>TORMENT</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo10.html">Details</a>
-          </div>
-          <!-- Card 2 -->
-          <div class="card">
-            <img src="logo 10.jpg" alt="Logo 11" />
-            <h3>HOPELESS</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo11.html">Details</a>
-          </div>
-          <div class="card">
-            <img src="logo12.jpg" alt="Logo 11" />
-            <h3>NOCTURA VIBE</h3>
-            <p class="price">COMMISSION WORK!</p>
-            <a class="details" href="detailslogo12.html">Details</a>
-          </div>
-         
+<div class="slider-wrapper">
+  <button class="arrow-btn" onclick="scrollSlider(-1)">←</button>
+
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="logo1.jpg" alt="Logo 1">
+        <h3>EVOTSON</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <a class="details" href="detailslogo1.html">Details</a>
       </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="buttons">
-      <button onclick="scrollSlider(-1)">←</button>
-      <button onclick="scrollSlider(1)">→</button>
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="logo2.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <a class="details" href="detailslogo2.html">Details</a>
+      </div>
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="Logoo 2.jpg" alt="Logo 3">
+        <h3>PUNISH</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <a class="details" href="detailslogo3.html">Details</a>
+      </div>
+      
     </div>
   </div>
 
-  <!-- Custom Request -->
-  <div class="custom-section">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiDn1dDn0p7ic4HFe3IBh97SDVTk12YtsX0C8eWv6CAi57dw/viewform?usp=sharing" target="_blank">
-      Request Custom Logo via Google Form
-    </a>
-  </div>
+  <button class="arrow-btn" onclick="scrollSlider(1)">→</button>
+</div>
 
-  <script>
-    function scrollSlider(direction) {
-      const container = document.getElementById('slider');
-      const scrollAmount = 300;
-      container.scrollLeft += direction * scrollAmount;
-    }
-  </script>
+<div class="custom-section">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiDn1dDn0p7ic4HFe3IBh97SDVTk12YtsX0C8eWv6CAi57dw/viewform?usp=sharing" target="_blank">
+    Request Your Custom Logo Now
+  </a>
+</div>
+
+<script>
+  let scrollIndex = 0;
+
+  function scrollSlider(direction) {
+    const slider = document.getElementById('slider');
+    const cardWidth = 240; // 220 card + 20 gap/margin
+    const visibleCards = 4;
+
+    const maxIndex = Math.ceil(slider.children.length - visibleCards);
+    scrollIndex = Math.min(Math.max(scrollIndex + direction, 0), maxIndex);
+    slider.style.transform = `translateX(-${scrollIndex * cardWidth}px)`;
+  }
+</script>
 
 </body>
 </html>

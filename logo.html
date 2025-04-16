@@ -205,6 +205,27 @@
         <p class="price">COMMISSION WORK!</p>
         <a class="details" href="detailslogo3.html">Details</a>
       </div>
+      <!-- Card 4 (New) -->
+      <div class="card">
+        <img src="logo4.jpg" alt="Logo 4">
+        <h3>RIVERO</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <a class="details" href="detailslogo4.html">Details</a>
+      </div>
+      <!-- Card 5 (New) -->
+      <div class="card">
+        <img src="logo5.jpg" alt="Logo 5">
+        <h3>METALIS</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <a class="details" href="detailslogo5.html">Details</a>
+      </div>
+      <!-- Card 6 (New) -->
+      <div class="card">
+        <img src="logo6.jpg" alt="Logo 6">
+        <h3>PIXELONE</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <a class="details" href="detailslogo6.html">Details</a>
+      </div>
     </div>
   </div>
 
@@ -225,7 +246,7 @@
     const cardWidth = 240; // 220 card + 20 gap/margin
     const visibleCards = 4;
 
-    const maxIndex = Math.ceil((slider.children.length - visibleCards) / 1); // Adjust maxIndex to show the last image
+    const maxIndex = Math.max(0, Math.ceil((slider.children.length - visibleCards) / 1)); // Adjust maxIndex to show the last image
     scrollIndex = Math.min(Math.max(scrollIndex + direction, 0), maxIndex);
     slider.style.transform = `translateX(-${scrollIndex * cardWidth}px)`;
   }

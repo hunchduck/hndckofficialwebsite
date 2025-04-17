@@ -56,7 +56,7 @@
 
     .slider-container {
       overflow: hidden;
-      width: 880px; /* 220px x 4 cards */
+      width: 880px;
     }
 
     .slider {
@@ -76,16 +76,21 @@
     }
 
     .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
-      background-color: #1a1a1a;
-      margin-bottom: 12px;
-      padding: 10px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
-      transition: transform 0.3s ease;
-    }
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  margin-bottom: 12px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  transition: transform 0.3s ease;
+  display: block;
+  overflow: hidden;
+}
+.card {
+  overflow: hidden;
+}
+
 
     .card img:hover {
       transform: scale(1.03);
@@ -99,6 +104,11 @@
     .price {
       font-size: 14px;
       color: #ccc;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 13px;
       margin-bottom: 6px;
     }
 
@@ -181,51 +191,137 @@
 
 <div class="slider-wrapper">
   <button class="arrow-btn" onclick="scrollSlider(-1)">←</button>
+  <script>
+    let scrollAmount = 0;
+  
+    function scrollSlider(direction) {
+      const slider = document.getElementById('slider');
+      const container = document.querySelector('.slider-container');
+      const card = slider.querySelector('.card');
+      const cardWidth = card.offsetWidth + 20; // include margin (0 10px)
+      const visibleWidth = container.offsetWidth;
+      const maxScroll = slider.scrollWidth - visibleWidth;
+  
+      scrollAmount += direction * cardWidth;
+  
+      if (scrollAmount < 0) scrollAmount = 0;
+      if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+  
+      slider.style.transform = `translateX(-${scrollAmount}px)`;
+    }
+  
+    // --- Swipe touch support for mobile ---
+    let startX = 0;
+    let isDown = false;
+  
+    const slider = document.getElementById('slider');
+    const container = document.querySelector('.slider-container');
+  
+    container.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDown = true;
+    });
+  
+    container.addEventListener('touchmove', (e) => {
+      if (!isDown) return;
+      let moveX = e.touches[0].clientX;
+      let diff = startX - moveX;
+  
+      // Geser per sentuhan
+      slider.style.transform = `translateX(-${scrollAmount + diff}px)`;
+    });
+  
+    container.addEventListener('touchend', (e) => {
+      if (!isDown) return;
+      isDown = false;
+      let endX = e.changedTouches[0].clientX;
+      let diff = startX - endX;
+  
+      // Jika geser cukup jauh, pindahkan satu kartu
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) scrollSlider(1); else scrollSlider(-1);
+      } else {
+        // Balik ke posisi awal jika geser pendek
+        slider.style.transform = `translateX(-${scrollAmount}px)`;
+      }
+    });
+  </script>
+  
 
   <div class="slider-container">
     <div class="slider" id="slider">
-      <!-- Card 1 -->
+      <!-- Example Cards -->
       <div class="card">
         <img src="logo1.jpg" alt="Logo 1">
         <h3>EVOTSON</h3>
         <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
         <a class="details" href="detailslogo1.html">Details</a>
       </div>
-      <!-- Card 2 -->
       <div class="card">
         <img src="logo2.jpg" alt="Logo 2">
         <h3>CRYPT BAND</h3>
         <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
         <a class="details" href="detailslogo2.html">Details</a>
       </div>
-      <!-- Card 3 -->
       <div class="card">
-        <img src="Logoo 2.jpg" alt="Logo 3">
-        <h3>PUNISH</h3>
+        <img src="logo 3.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
         <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
         <a class="details" href="detailslogo3.html">Details</a>
       </div>
-      <!-- Card 4 (New) -->
       <div class="card">
-        <img src="logo4.jpg" alt="Logo 4">
-        <h3>RIVERO</h3>
+        <img src="logo 4.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
         <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
         <a class="details" href="detailslogo4.html">Details</a>
       </div>
-      <!-- Card 5 (New) -->
       <div class="card">
-        <img src="logo5.jpg" alt="Logo 5">
-        <h3>METALIS</h3>
+        <img src="logo 5.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
         <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
         <a class="details" href="detailslogo5.html">Details</a>
       </div>
-      <!-- Card 6 (New) -->
       <div class="card">
-        <img src="logo6.jpg" alt="Logo 6">
-        <h3>PIXELONE</h3>
+        <img src="logo 6.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
         <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
         <a class="details" href="detailslogo6.html">Details</a>
       </div>
+      <div class="card">
+        <img src="logo 7.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
+        <a class="details" href="detailslogo7.html">Details</a>
+      </div>
+      <div class="card">
+        <img src="logo 8.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
+        <a class="details" href="detailslogo8.html">Details</a>
+      </div>
+      <div class="card">
+        <img src="logo 9.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
+        <a class="details" href="detailslogo9.html">Details</a>
+      </div>
+      <div class="card">
+        <img src="logo 10.jpg" alt="Logo 2">
+        <h3>CRYPT BAND</h3>
+        <p class="price">COMMISSION WORK!</p>
+        <p>(Text & Color can be adjusted)</p>
+        <a class="details" href="detailslogo10.html">Details</a>
+      </div>
+      <!-- Add more cards as needed -->
     </div>
   </div>
 
@@ -239,18 +335,25 @@
 </div>
 
 <script>
-  let scrollIndex = 0;
+  let scrollAmount = 0;
 
   function scrollSlider(direction) {
     const slider = document.getElementById('slider');
-    const cardWidth = 240; // 220 card + 20 gap/margin
-    const visibleCards = 4;
+    const container = document.querySelector('.slider-container');
+    const card = slider.querySelector('.card');
+    const cardWidth = card.offsetWidth + 20; // include margin (0 10px)
+    const visibleWidth = container.offsetWidth;
+    const maxScroll = slider.scrollWidth - visibleWidth;
 
-    const maxIndex = Math.max(0, Math.ceil((slider.children.length - visibleCards) / 1)); // Adjust maxIndex to show the last image
-    scrollIndex = Math.min(Math.max(scrollIndex + direction, 0), maxIndex);
-    slider.style.transform = `translateX(-${scrollIndex * cardWidth}px)`;
+    scrollAmount += direction * cardWidth;
+
+    if (scrollAmount < 0) scrollAmount = 0;
+    if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+
+    slider.style.transform = `translateX(-${scrollAmount}px)`;
   }
 </script>
+
 
 </body>
 </html>

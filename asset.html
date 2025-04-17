@@ -218,10 +218,10 @@
     const slider = document.getElementById('slider');
     const itemWidth = 176; // 160px + 16px margin
     let currentScroll = 0;
-  
+
     function moveSlider(direction) {
       const maxScroll = slider.scrollWidth - slider.parentElement.clientWidth;
-  
+
       if (direction === 'next') {
         currentScroll += itemWidth;
         if (currentScroll > maxScroll) currentScroll = maxScroll;
@@ -229,37 +229,9 @@
         currentScroll -= itemWidth;
         if (currentScroll < 0) currentScroll = 0;
       }
-  
+
       slider.style.transform = `translateX(-${currentScroll}px)`;
     }
-  
-    // --- Touch swipe support ---
-    let startX = 0;
-    let isDragging = false;
-  
-    slider.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-    });
-  
-    slider.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      const touchX = e.touches[0].clientX;
-      const diff = touchX - startX;
-  
-      if (Math.abs(diff) > 50) { // Minimal jarak swipe
-        if (diff > 0) {
-          moveSlider('prev');
-        } else {
-          moveSlider('next');
-        }
-        isDragging = false;
-      }
-    });
-  
-    slider.addEventListener('touchend', () => {
-      isDragging = false;
-    });
   </script>
 
 </body>

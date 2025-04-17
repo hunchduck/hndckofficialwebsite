@@ -288,23 +288,51 @@
 </div>
 
 <script>
-  let scrollAmount = 0;
+  const slider = document.getElementById('slider');
+  const itemWidth = 176; // 160px + 16px margin
+  let currentScroll = 0;
 
-  function scrollSlider(direction) {
-    const slider = document.getElementById('slider');
-    const container = document.querySelector('.slider-container');
-    const card = slider.querySelector('.card');
-    const cardWidth = card.offsetWidth + 20; // include margin (0 10px)
-    const visibleWidth = container.offsetWidth;
-    const maxScroll = slider.scrollWidth - visibleWidth;
+  function moveSlider(direction) {
+    const maxScroll = slider.scrollWidth - slider.parentElement.clientWidth;
 
-    scrollAmount += direction * cardWidth;
+    if (direction === 'next') {
+      currentScroll += itemWidth;
+      if (currentScroll > maxScroll) currentScroll = maxScroll;
+    } else {
+      currentScroll -= itemWidth;
+      if (currentScroll < 0) currentScroll = 0;
+    }
 
-    if (scrollAmount < 0) scrollAmount = 0;
-    if (scrollAmount > maxScroll) scrollAmount = maxScroll;
-
-    slider.style.transform = `translateX(-${scrollAmount}px)`;
+    slider.style.transform = `translateX(-${currentScroll}px)`;
   }
+
+  // --- Touch swipe support ---
+  let startX = 0;
+  let isDragging = false;
+
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  slider.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const touchX = e.touches[0].clientX;
+    const diff = touchX - startX;
+
+    if (Math.abs(diff) > 50) { // Minimal jarak swipe
+      if (diff > 0) {
+        moveSlider('prev');
+      } else {
+        moveSlider('next');
+      }
+      isDragging = false;
+    }
+  });
+
+  slider.addEventListener('touchend', () => {
+    isDragging = false;
+  });
 </script>
 
 

@@ -206,30 +206,56 @@
 
 <div class="custom-section">
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiDn1dDn0p7ic4HFe3IBh97SDVTk12YtsX0C8eWv6CAi57dw/viewform?usp=sharing" target="_blank">
-    Request Your Custom Graphic Design Now
+    Custom Your Design Now!
   </a>
 </div>
 
 <script>
-  let scrollPosition = 0;
+  const slider = document.getElementById('slider');
+  const itemWidth = 176; // 160px + 16px margin
+  let currentScroll = 0;
 
-  function scrollSlider(direction) {
-    const slider = document.getElementById('slider');
-    const container = document.querySelector('.slider-container');
-    const card = document.querySelector('.card');
+  function moveSlider(direction) {
+    const maxScroll = slider.scrollWidth - slider.parentElement.clientWidth;
 
-    const cardWidth = card.offsetWidth + 20; // 220 + margin (10px left + 10px right)
-    const containerWidth = container.offsetWidth;
-    const maxScroll = slider.scrollWidth - containerWidth;
+    if (direction === 'next') {
+      currentScroll += itemWidth;
+      if (currentScroll > maxScroll) currentScroll = maxScroll;
+    } else {
+      currentScroll -= itemWidth;
+      if (currentScroll < 0) currentScroll = 0;
+    }
 
-    scrollPosition += direction * cardWidth;
-
-    // Batasi scroll supaya tidak melewati batas
-    scrollPosition = Math.max(0, Math.min(scrollPosition, maxScroll));
-
-    slider.style.transform = `translateX(-${scrollPosition}px)`;
+    slider.style.transform = `translateX(-${currentScroll}px)`;
   }
-</script>
 
+  // --- Touch swipe support ---
+  let startX = 0;
+  let isDragging = false;
+
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  slider.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const touchX = e.touches[0].clientX;
+    const diff = touchX - startX;
+
+    if (Math.abs(diff) > 50) { // Minimal jarak swipe
+      if (diff > 0) {
+        moveSlider('prev');
+      } else {
+        moveSlider('next');
+      }
+      isDragging = false;
+    }
+  });
+
+  slider.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+</script>
 </body>
 </html>

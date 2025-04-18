@@ -172,11 +172,8 @@
       color: #666;
     }
 
+    /* Responsiveness for mobile portrait mode */
     @media (max-width: 768px) {
-      .arrow-buttons {
-        display: none;
-      }
-
       .catalog-container {
         padding: 0 10px;
       }
@@ -204,6 +201,21 @@
       .logo-section {
         margin-bottom: 10px;
         justify-content: center;
+      }
+
+      .arrow-buttons {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        right: 10px;
+        transform: translateY(-50%);
+        pointer-events: all;
+        z-index: 10;
+      }
+
+      .arrow-btn {
+        font-size: 18px;
       }
     }
   </style>

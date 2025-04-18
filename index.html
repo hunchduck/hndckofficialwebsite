@@ -147,20 +147,21 @@
       z-index: 10;
     }
 
-    .arrow {
-      background-color: rgba(255, 255, 255, 0.8); /* lebih terang */
+    .arrow-btn {
+      background-color: #333;
+      color: #fff;
       border: none;
-      color: #000; /* teks hitam agar kontras */
-      font-size: 28px;
-      cursor: pointer;
+      border-radius: 6px;
       padding: 10px;
-      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s;
+      font-size: 20px;
       pointer-events: all;
-      transition: background-color 0.3s ease;
     }
 
-    .arrow:hover {
-      background-color: rgba(255, 255, 255, 1);
+    .arrow-btn:hover {
+      background-color: #555;
     }
 
     footer {
@@ -228,8 +229,8 @@
     <h2>Welcome to HunchDuck Studio</h2>
     <div class="catalog-container">
       <div class="arrow-buttons">
-        <button class="arrow prev" onclick="moveSlider('prev')">&#10094;</button>
-        <button class="arrow next" onclick="moveSlider('next')">&#10095;</button>
+        <button class="arrow-btn" onclick="moveSlider('prev')">←</button>
+        <button class="arrow-btn" onclick="moveSlider('next')">→</button>
       </div>
       <div class="catalog-slider-wrapper">
         <div class="catalog-slider" id="slider">

@@ -14,153 +14,85 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #0e0e0e;
+      background: linear-gradient(145deg, #000000, #1a1a1a);
       color: #fff;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      overflow-x: hidden;
-      background: linear-gradient(135deg, #000, #0e0e0e);
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-      height: 100%;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .left-panel {
-      flex: 1;
-      background-color: rgba(17, 17, 17, 0.85);
-      backdrop-filter: blur(6px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 40px 20px;
-      position: relative;
-      text-align: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 30px 20px;
     }
 
-    .left-panel img {
-      max-width: 120px;
-      margin-bottom: 20px;
+    .content-wrapper {
+      width: 100%;
+      max-width: 400px;
+      background-color: rgba(20, 20, 20, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 30px 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .logo {
+      max-width: 90px;
+      margin-bottom: 16px;
       filter: grayscale(100%) brightness(1.5);
     }
 
-    .left-panel h1 {
-      font-size: 28px;
+    h1 {
+      font-size: 24px;
       font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
+      margin-bottom: 6px;
     }
 
-    .left-panel p {
+    p.tagline {
       font-size: 13px;
       color: #aaa;
-    }
-
-    .footer-tag {
-      position: absolute;
-      bottom: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #666;
-      width: 100%;
-      padding: 0 20px;
-    }
-
-    .right-panel {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 30px 20px;
+      margin-bottom: 30px;
     }
 
     .menu {
       display: flex;
       flex-direction: column;
-      gap: 30px;
-      align-items: center;
+      gap: 16px;
     }
 
     .menu a {
-      position: relative;
-      font-size: 22px;
-      color: #fff;
+      font-size: 16px;
       text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 700;
-      transition: 0.3s ease;
-      padding: 10px 20px;
-      border-radius: 6px;
-    }
-
-    .menu a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: white;
-      transition: width 0.3s ease-in-out;
-    }
-
-    .menu a:hover::after {
-      width: 100%;
+      color: #fff;
+      padding: 12px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      transition: background 0.3s;
+      font-weight: bold;
     }
 
     .menu a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
       color: #ccc;
-      background-color: rgba(255, 255, 255, 0.05);
     }
 
     .back-link {
-      display: block;
-      margin-top: 30px;
+      margin-top: 20px;
+      font-size: 14px;
       color: #aaa;
       text-decoration: underline;
-      font-size: 16px;
-      transition: 0.3s ease;
+      transition: 0.3s;
     }
 
     .back-link:hover {
       color: #fff;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .left-panel, .right-panel {
-        flex: unset;
-        height: auto;
-        padding: 30px 20px;
-      }
-
-      .left-panel h1 {
-        font-size: 24px;
-      }
-
-      .menu a {
-        font-size: 20px;
-      }
-
-      .back-link {
-        margin-top: 20px;
-        font-size: 15px;
-      }
-
-      .footer-tag {
-        font-size: 11px;
-        padding: 20px 10px 0;
-      }
+    .footer-tag {
+      margin-top: 30px;
+      font-size: 11px;
+      color: #666;
     }
 
     @keyframes fadeIn {
@@ -173,32 +105,50 @@
         transform: translateY(0);
       }
     }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 60px 0;
+      }
+
+      .content-wrapper {
+        max-width: 500px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .menu a {
+        font-size: 17px;
+      }
+
+      .back-link {
+        font-size: 15px;
+      }
+
+      .footer-tag {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <!-- Left Panel -->
-    <div class="left-panel">
-      <img src="hnchdcklogo.png" alt="Hunchduck Logo">
-      <h1>Hunchduck Studio</h1>
-      <p>Premium Graphic Design Solutions</p>
+  <div class="content-wrapper">
+    <img src="hnchdcklogo.png" alt="Hunchduck Logo" class="logo" />
+    <h1>Hunchduck Studio</h1>
+    <p class="tagline">Premium Graphic Design Solutions</p>
 
-      <!-- Footer tag (diletakkan di bawah dan center) -->
-      
+    <div class="menu">
+      <a href="logo.html">Logo</a>
+      <a href="subartwork.html">Art Work</a>
+      <a href="asset.html">Asset</a>
+    </div>
 
-    <!-- Right Panel -->
-    <div class="right-panel">
-      <div class="menu">
-        <a href="logo.html">Logo</a>
-        <a href="subartwork.html">Art Work</a>
-        <a href="asset.html">Asset</a>
-        <a href="index.html" class="back-link">← Back to Home</a>
-        <div class="footer-tag">
-          &copy; 2022 hndckstudio. All Rights Reserved. | created by: @alifyaanazz_
-        </div>
-      </div>
-      </div>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <div class="footer-tag">
+      &copy; 2022 hndckstudio. All Rights Reserved. | created by: @alifyaanazz_
     </div>
   </div>
 
